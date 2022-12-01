@@ -33,6 +33,18 @@ public class mainPagePages {
     private final By arabVersion = xpath("//div[@class='lngs_contaner']/a[4]");
     private final By rusVersion = xpath("//div[@class='lngs_contaner']/a[1]");
 
+    //faculty
+    private final By aerospace = xpath("//div[@class='faculties_contaner']/ul/li[1]/a");
+    private final By mountOil = xpath("//div[@class='faculties_contaner']/ul/li[2]/a");
+    private final By gym = xpath("//div[@class='faculties_contaner']/ul/li[3]/a");
+    private final By mechanicTechnic = xpath("//div[@class='faculties_contaner']/ul/li[4]/a");
+    private final By build = xpath("//div[@class='faculties_contaner']/ul/li[5]/a");
+    private final By mathAndMechanic = xpath("//div[@class='faculties_contaner']/ul/li[6]/a");
+    private final By chemistry = xpath("//div[@class='faculties_contaner']/ul/li[7]/a");
+    private final By electricTechnic = xpath("//div[@class='faculties_contaner']/ul/li[8]/a");
+
+
+
 
 
     public mainPagePages checkFooter(){
@@ -55,6 +67,19 @@ public class mainPagePages {
         $(worldwideHeader).shouldHave(text("Иностранным гражданам"));
         $(partnersHeader).shouldHave(text("Партнерам"));
         $(massMediaHeader).shouldHave(text("СМИ"));
+
+        return this;
+    }
+
+    public mainPagePages checkFaculty(){
+        $(aerospace).hover().shouldHave(text("Аэрокосмический"));
+        $(mountOil).shouldHave(text("Горно-нефтяной"));
+        $(gym).shouldHave(text("Гуманитарный"));
+        $(mechanicTechnic).shouldHave(text("Механико-технологический"));
+        $(build).shouldHave(text("Строительный"));
+        $(mathAndMechanic).shouldHave(text("Прикладной математики и механики"));
+        $(chemistry).shouldHave(text("Химических технологий, промышленной экологии и биотехнологий"));
+        $(electricTechnic).shouldHave(text("Электро-технический"));
 
         return this;
     }
