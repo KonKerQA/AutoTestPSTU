@@ -8,6 +8,7 @@ import static org.openqa.selenium.By.xpath;
 
 public class mainPagePages {
 
+    //footer
     private final By contactAddressFooter = xpath("//div[@class='botom_block'][1]//p[1]");
     private final By contactPhoneNumberFooter = xpath("//div[@class='botom_block'][1]//p[1]/a[1]");
     private final By contactEmailFooter = xpath("//div[@class='botom_block'][1]//p[1]/a[2]");
@@ -16,7 +17,14 @@ public class mainPagePages {
     private final By massMediaPhoneNumberFooter = xpath("//div[@class='botom_block'][1]//p[3]/a[1]");
     private final By massMediaEmailFooter = xpath("//div[@class='botom_block'][1]//p[3]/a[2]");
 
-    private final By contactheader = xpath("//div[@class='target_groups']/ul/li/a");
+    //header
+    private final By enrollHeader = xpath("//div[@class='target_groups']/ul/li[1]/a");
+    private final By studentHeader = xpath("//div[@class='target_groups']/ul/li[2]/a");
+    private final By aspirantHeader = xpath("//div[@class='target_groups']/ul/li[3]/a");
+    private final By workersHeader = xpath("//div[@class='target_groups']/ul/li[4]/a");
+    private final By worldwideHeader = xpath("//div[@class='target_groups']/ul/li[5]/a");
+    private final By partnersHeader = xpath("//div[@class='target_groups']/ul/li[6]/a");
+    private final By massMediaHeader = xpath("//div[@class='target_groups']/ul/li[7]/a");
 
 
 
@@ -31,4 +39,18 @@ public class mainPagePages {
 
         return this;
     }
+
+    public mainPagePages checkHeader(){
+        $(enrollHeader).hover().shouldHave(text("Абитуриентам"));
+        $(studentHeader).shouldHave(text("Студентам"));
+        $(aspirantHeader).shouldHave(text("Аспирантам"));
+        $(workersHeader).shouldHave(text("Сотрудникам"));
+        $(worldwideHeader).shouldHave(text("Иностранным гражданам"));
+        $(partnersHeader).shouldHave(text("Партнерам"));
+        $(massMediaHeader).shouldHave(text("СМИ"));
+
+        return this;
+    }
+
+
 }
