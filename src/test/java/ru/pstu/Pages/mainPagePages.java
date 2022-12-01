@@ -4,7 +4,10 @@ import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.openqa.selenium.By.xpath;
+import static ru.pstu.Test.baseTest.baseUrl;
 
 public class mainPagePages {
 
@@ -25,6 +28,10 @@ public class mainPagePages {
     private final By worldwideHeader = xpath("//div[@class='target_groups']/ul/li[5]/a");
     private final By partnersHeader = xpath("//div[@class='target_groups']/ul/li[6]/a");
     private final By massMediaHeader = xpath("//div[@class='target_groups']/ul/li[7]/a");
+    private final By engVersion = xpath("//div[@class='lngs_contaner']/a[2]");
+    private final By chinaVersion = xpath("//div[@class='lngs_contaner']/a[3]");
+    private final By arabVersion = xpath("//div[@class='lngs_contaner']/a[4]");
+    private final By rusVersion = xpath("//div[@class='lngs_contaner']/a[1]");
 
 
 
@@ -48,6 +55,30 @@ public class mainPagePages {
         $(worldwideHeader).shouldHave(text("Иностранным гражданам"));
         $(partnersHeader).shouldHave(text("Партнерам"));
         $(massMediaHeader).shouldHave(text("СМИ"));
+
+        return this;
+    }
+
+
+    public mainPagePages checkEngLanguage(){
+        $(engVersion).click();
+        webdriver().shouldHave(url( baseUrl + "en/"));
+        return this;
+    }
+
+
+
+    public mainPagePages checkChineseLanguage(){
+        $(chinaVersion).click();
+        webdriver().shouldHave(url( baseUrl + "cn/"));
+        return this;
+    }
+
+
+
+    public mainPagePages checkArabicLanguage(){
+        $(arabVersion).click();
+        webdriver().shouldHave(url( baseUrl + "ar/"));
 
         return this;
     }
