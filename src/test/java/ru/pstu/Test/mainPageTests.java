@@ -9,15 +9,9 @@ public class mainPageTests extends baseTest {
     mainPagePages mainPage = new mainPagePages();
 
     @Test
-    void footerTest() {
-        mainPage.checkFooter();
+    void mainPageCheckTextTest() {
+        mainPage.checkHeader().checkFaculty().checkFooter();
     }
-
-    @Test
-    void headerTest() {
-        mainPage.checkHeader();
-    }
-
 
     @Test
     void engLanguageTest() {
@@ -35,11 +29,5 @@ public class mainPageTests extends baseTest {
     void arLanguageTest() {
         mainPage.checkArabicLanguage();
     }
-
-    @Test
-    void checkFacultyTest() {
-        mainPage.checkFaculty();
-    }
-
 
 }
