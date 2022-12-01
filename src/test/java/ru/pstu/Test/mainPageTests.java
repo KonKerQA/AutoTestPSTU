@@ -5,7 +5,6 @@ import ru.pstu.Pages.mainPagePages;
 
 
 public class mainPageTests extends baseTest {
-
     mainPagePages mainPage = new mainPagePages();
 
     @Test

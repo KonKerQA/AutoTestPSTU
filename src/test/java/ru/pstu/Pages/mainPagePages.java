@@ -46,7 +46,6 @@ public class mainPagePages {
 
 
 
-
     public mainPagePages checkFooter(){
         $(contactAddressFooter).hover().shouldHave(text("614990, Пермский край, г. Пермь, Комсомольский проспект, д. 29"));
         $(contactPhoneNumberFooter).shouldHave(text("+7 (342) 2-198-520"));
