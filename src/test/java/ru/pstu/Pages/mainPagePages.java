@@ -1,10 +1,10 @@
 package ru.pstu.Pages;
 
+import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.webdriver;
+import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.openqa.selenium.By.xpath;
 import static ru.pstu.Test.baseTest.baseUrl;
@@ -19,6 +19,10 @@ public class mainPagePages {
     private final By questionsPhoneNumberFooter = xpath("//div[@class='botom_block'][1]//p[2]/a[1]");
     private final By massMediaPhoneNumberFooter = xpath("//div[@class='botom_block'][1]//p[3]/a[1]");
     private final By massMediaEmailFooter = xpath("//div[@class='botom_block'][1]//p[3]/a[2]");
+    private final By clickRutube = xpath("//div[@class='bottom_soc']/a[1]");
+    private final By clickVK = xpath("//div[@class='bottom_soc']/a[2]");
+    private final By clickTelegram = xpath("//div[@class='bottom_soc']/a[3]");
+    private final By clickLSN = xpath("//div[@class='bottom_soc']/a[5]");
 
     //header
     private final By enrollHeader = xpath("//div[@class='target_groups']/ul/li[1]/a");
@@ -46,7 +50,7 @@ public class mainPagePages {
 
 
 
-    public mainPagePages checkFooter(){
+    public mainPagePages checkContactInformation(){
         $(contactAddressFooter).hover().shouldHave(text("614990, Пермский край, г. Пермь, Комсомольский проспект, д. 29"));
         $(contactPhoneNumberFooter).shouldHave(text("+7 (342) 2-198-520"));
         $(contactEmailFooter).shouldHave(text("kanc@pstu.ru"));
@@ -87,6 +91,7 @@ public class mainPagePages {
     public mainPagePages checkEngLanguage(){
         $(engVersion).click();
         webdriver().shouldHave(url( baseUrl + "en/"));
+        back();
         return this;
     }
 
@@ -95,6 +100,7 @@ public class mainPagePages {
     public mainPagePages checkChineseLanguage(){
         $(chinaVersion).click();
         webdriver().shouldHave(url( baseUrl + "cn/"));
+        back();
         return this;
     }
 
@@ -103,7 +109,43 @@ public class mainPagePages {
     public mainPagePages checkArabicLanguage(){
         $(arabVersion).click();
         webdriver().shouldHave(url( baseUrl + "ar/"));
+        back();
+        return this;
+    }
 
+
+    public mainPagePages checkRutube(){
+        $(clickRutube).click();
+        switchTo().window(1);
+        webdriver().shouldHave(url( "https://rutube.ru/channel/25507363/"));
+        closeWindow();
+        return this;
+    }
+
+
+    public mainPagePages checkVK(){
+        $(clickVK).click();
+        switchTo().window(1);
+        webdriver().shouldHave(url( "https://vk.com/politehperm"));
+        closeWindow();
+        return this;
+    }
+
+
+    public mainPagePages checkTelegram(){
+        $(clickTelegram).click();
+        switchTo().window(1);
+        webdriver().shouldHave(url( "https://t.me/politehperm"));
+        closeWindow();
+        return this;
+    }
+
+
+    public mainPagePages checkLNS(){
+        $(clickLSN).hover().click();
+        switchTo().window(1);
+        webdriver().shouldHave(url( "https://lsn.pstu.ru/#/login"));
+        closeWindow();
         return this;
     }
 
