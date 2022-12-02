@@ -84,6 +84,21 @@ public class mainPagePages {
         return this;
     }
 
+    public mainPagePages othersHeaderPageCheck(){
+        $(studentHeader).click();
+        webdriver().shouldHave(url( baseUrl + "title1/student/pamyatka/"));
+        $(aspirantHeader).click();
+        webdriver().shouldHave(url( baseUrl + "title1/aspirantu/"));
+        $(workersHeader).click();
+        webdriver().shouldHave(url( baseUrl + "personal_info/staff_ads/"));
+        $(partnersHeader).click();
+        webdriver().shouldHave(url( baseUrl + "business/1/"));
+        $(massMediaHeader).click();
+        webdriver().shouldHave(url( baseUrl + "pressa/"));
+
+        return this;
+    }
+
     public mainPagePages enrollPageCheck(){
         $(enrollHeader).click();
         webdriver().shouldHave(url( baseUrl + "enrollee/"));
@@ -91,13 +106,13 @@ public class mainPagePages {
         $(checkPreparingCourses).shouldHave(text("Подготовительные курсы"));
         back();
         $(examsProgram).click();
-        $(checkExamsProgram).shouldHave(text("Подготовка к поступлению"));;
+        $(checkExamsProgram).shouldHave(text("Подготовка к поступлению"));
         back();
         $(excursionsPSTU).click();
-        $(checkExcursionsPSTU).shouldHave(text("Экскурсии в ПНИПУ"));;
+        $(checkExcursionsPSTU).shouldHave(text("Экскурсии в ПНИПУ"));
         back();
         $(eventCalendar).click();
-        $(checkEventCalendar).shouldHave(text("Календарь событий"));;
+        $(checkEventCalendar).shouldHave(text("Календарь событий"));
         back();
         $(backToMainPage).click();
         return this;

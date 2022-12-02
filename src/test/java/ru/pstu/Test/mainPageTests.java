@@ -35,4 +35,9 @@ public class mainPageTests extends baseTest {
         mainPage.enrollPageCheck();
     }
 
+    @Test
+    void othersHeaderPagesTest() {
+        mainPage.othersHeaderPageCheck();
+    }
+
 }
