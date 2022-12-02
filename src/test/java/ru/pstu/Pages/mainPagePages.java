@@ -1,6 +1,5 @@
 package ru.pstu.Pages;
 
-import com.codeborne.selenide.Selenide;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
@@ -36,6 +35,8 @@ public class mainPagePages {
     private final By chinaVersion = xpath("//div[@class='lngs_contaner']/a[3]");
     private final By arabVersion = xpath("//div[@class='lngs_contaner']/a[4]");
     private final By rusVersion = xpath("//div[@class='lngs_contaner']/a[1]");
+    private final By lowEyeVersion = xpath("//div[@class='top_nav_contaner']/a[1]");
+    private final By highEyeVersion = xpath("//div[@id='head']//b/a");
 
     //faculty
     private final By aerospace = xpath("//div[@class='faculties_contaner']/ul/li[1]/a");
@@ -47,7 +48,15 @@ public class mainPagePages {
     private final By chemistry = xpath("//div[@class='faculties_contaner']/ul/li[7]/a");
     private final By electricTechnic = xpath("//div[@class='faculties_contaner']/ul/li[8]/a");
 
-
+    //enrol
+    private final By preparingCourses = xpath("//div[@class='content_block_training']/ul/li[1]/a");
+    private final By checkPreparingCourses = xpath("//div[@class='content']/h1");
+    private final By examsProgram = xpath("//div[@class='content_block_training']/ul/li[2]/a");
+    private final By checkExamsProgram = xpath("//div[@class='content']/h1");
+    private final By excursionsPSTU = xpath("//div[@class='content_block_training']/ul/li[4]/a");
+    private final By checkExcursionsPSTU = xpath("//div[@class='content']/h1");
+    private final By eventCalendar = xpath("//div[@class='content_block_training']/ul/li[5]/a");
+    private final By checkEventCalendar = xpath("//div[@class='content']/h1");
 
 
     public mainPagePages checkContactInformation(){
@@ -70,6 +79,25 @@ public class mainPagePages {
         $(worldwideHeader).shouldHave(text("Иностранным гражданам"));
         $(partnersHeader).shouldHave(text("Партнерам"));
         $(massMediaHeader).shouldHave(text("СМИ"));
+
+        return this;
+    }
+
+    public mainPagePages enrollPageCheck(){
+        $(enrollHeader).click();
+        webdriver().shouldHave(url( baseUrl + "enrollee/"));
+        $(preparingCourses).click();
+        $(checkPreparingCourses).shouldHave(text("Подготовительные курсы"));
+        back();
+        $(examsProgram).click();
+        $(checkExamsProgram).shouldHave(text("Подготовка к поступлению"));;
+        back();
+        $(excursionsPSTU).click();
+        $(checkExcursionsPSTU).shouldHave(text("Экскурсии в ПНИПУ"));;
+        back();
+        $(eventCalendar).click();
+        $(checkEventCalendar).shouldHave(text("Календарь событий"));;
+        back();
 
         return this;
     }
@@ -114,11 +142,20 @@ public class mainPagePages {
     }
 
 
+    public mainPagePages checkLowEye(){
+        $(lowEyeVersion).click();
+        webdriver().shouldHave(url( baseUrl + "?special=1"));
+        $(highEyeVersion).click();
+        return this;
+    }
+
+
     public mainPagePages checkRutube(){
         $(clickRutube).click();
         switchTo().window(1);
         webdriver().shouldHave(url( "https://rutube.ru/channel/25507363/"));
         closeWindow();
+        switchTo().window(0);
         return this;
     }
 
@@ -128,6 +165,7 @@ public class mainPagePages {
         switchTo().window(1);
         webdriver().shouldHave(url( "https://vk.com/politehperm"));
         closeWindow();
+        switchTo().window(0);
         return this;
     }
 
@@ -137,6 +175,7 @@ public class mainPagePages {
         switchTo().window(1);
         webdriver().shouldHave(url( "https://t.me/politehperm"));
         closeWindow();
+        switchTo().window(0);
         return this;
     }
 
@@ -146,6 +185,7 @@ public class mainPagePages {
         switchTo().window(1);
         webdriver().shouldHave(url( "https://lsn.pstu.ru/#/login"));
         closeWindow();
+        switchTo().window(0);
         return this;
     }
 

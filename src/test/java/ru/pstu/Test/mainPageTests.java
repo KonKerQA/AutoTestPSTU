@@ -9,32 +9,30 @@ public class mainPageTests extends baseTest {
 
     @Test
     void mainPageCheckTextTest() {
-        mainPage.checkHeader().checkFaculty().checkContactInformation();
+        mainPage.checkHeader().
+                checkFaculty().
+                checkContactInformation();
     }
 
     @Test
-    void engLanguageTest() {
-        mainPage.checkEngLanguage().checkChineseLanguage().checkArabicLanguage();
+    void otherVersionsSiteTest() {
+        mainPage.checkEngLanguage().
+                checkChineseLanguage().
+                checkArabicLanguage().
+                checkLowEye();
     }
 
     @Test
-    void clickTelegramTest() {
-        mainPage.checkTelegram();
+    void otherSocialNetworksTest() {
+        mainPage.checkTelegram().
+                checkLNS().
+                checkRutube().
+                checkVK();
     }
 
     @Test
-    void clickVKTest() {
-        mainPage.checkVK();
-    }
-
-    @Test
-    void clickRutubeTest() {
-        mainPage.checkRutube();
-    }
-
-    @Test
-    void clickLNSTest() {
-        mainPage.checkLNS();
+    void enrollTest() {
+        mainPage.enrollPageCheck();
     }
 
 }
