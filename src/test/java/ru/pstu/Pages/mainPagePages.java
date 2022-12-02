@@ -57,6 +57,7 @@ public class mainPagePages {
     private final By checkExcursionsPSTU = xpath("//div[@class='content']/h1");
     private final By eventCalendar = xpath("//div[@class='content_block_training']/ul/li[5]/a");
     private final By checkEventCalendar = xpath("//div[@class='content']/h1");
+    private final By backToMainPage = xpath("//div[@class='site_map']/ul[1]/li[1]/a");
 
 
     public mainPagePages checkContactInformation(){
@@ -98,7 +99,7 @@ public class mainPagePages {
         $(eventCalendar).click();
         $(checkEventCalendar).shouldHave(text("Календарь событий"));;
         back();
-
+        $(backToMainPage).click();
         return this;
     }
 
