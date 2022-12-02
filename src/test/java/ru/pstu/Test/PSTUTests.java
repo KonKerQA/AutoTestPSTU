@@ -1,22 +1,22 @@
 package ru.pstu.Test;
 
 import org.junit.jupiter.api.Test;
-import ru.pstu.Pages.mainPagePages;
+import ru.pstu.Pages.PSTUPages;
 
 
-public class mainPageTests extends baseTest {
-    mainPagePages mainPage = new mainPagePages();
+public class PSTUTests extends baseTest {
+    PSTUPages pstuPages = new PSTUPages();
 
     @Test
     void mainPageCheckTextTest() {
-        mainPage.checkHeader().
+        pstuPages.checkHeader().
                 checkFaculty().
                 checkContactInformation();
     }
 
     @Test
     void otherVersionsSiteTest() {
-        mainPage.checkEngLanguage().
+        pstuPages.checkEngLanguage().
                 checkChineseLanguage().
                 checkArabicLanguage().
                 checkLowEye();
@@ -24,7 +24,7 @@ public class mainPageTests extends baseTest {
 
     @Test
     void otherSocialNetworksTest() {
-        mainPage.checkTelegram().
+        pstuPages.checkTelegram().
                 checkLNS().
                 checkRutube().
                 checkVK();
@@ -32,12 +32,12 @@ public class mainPageTests extends baseTest {
 
     @Test
     void enrollTest() {
-        mainPage.enrollPageCheck();
+        pstuPages.enrollPageCheck();
     }
 
     @Test
     void othersHeaderPagesTest() {
-        mainPage.othersHeaderPageCheck();
+        pstuPages.othersHeaderPageCheck();
     }
 
 }
