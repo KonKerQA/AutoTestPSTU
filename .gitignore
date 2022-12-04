@@ -25,6 +25,7 @@
 .idea
 .allure/
 allure-results/
+gradle/
 build/
 bin/
 out/
