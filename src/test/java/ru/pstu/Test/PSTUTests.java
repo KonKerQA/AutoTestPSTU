@@ -11,7 +11,6 @@ import static io.qameta.allure.Allure.attachment;
 
 
 public class PSTUTests extends baseTest {
-    PSTUPages pstuPages = new PSTUPages();
 
     @Test
     @DisplayName("Проверка текста на главной странице")
@@ -50,7 +49,7 @@ public class PSTUTests extends baseTest {
     void enrollTest() {
         SelenideLogger.addListener("allure", new AllureSelenide());
 
-        pstuPages.enrollPageCheck();
+        enrolle.enrollPageCheck();
         attachment("Source", webdriver().driver().source());
     }
 
