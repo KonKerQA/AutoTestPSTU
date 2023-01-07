@@ -1,5 +1,6 @@
 package ru.pstu.Pages;
 
+import io.qameta.allure.Link;
 import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Condition.text;
@@ -12,6 +13,7 @@ public class EnrolleePages {
 
     xPathSelectors xpath = new xPathSelectors();
     @Step("Проверяем страницу для абитурентов")
+    @Link("https://pstu.ru/enrollee/")
     public EnrolleePages enrollPageCheck(){
         $(xpath.enrollHeader).click();
         webdriver().shouldHave(url( baseUrl + "enrollee/"));

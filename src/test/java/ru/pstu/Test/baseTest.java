@@ -2,10 +2,7 @@ package ru.pstu.Test;
 
 import com.codeborne.selenide.Configuration;
 import io.qameta.allure.Step;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.TestInstance;
+import org.junit.jupiter.api.*;
 import ru.pstu.Pages.EnrolleePages;
 import ru.pstu.Pages.PSTUPages;
 import ru.pstu.helpers.Attach;
@@ -23,6 +20,7 @@ public class baseTest {
     static void  beforeAllTests() {
         Configuration.browserSize = "1920x1080";
     }
+
     @BeforeEach
     @Step("Открываем главную страницу")
      void  beforeTests(){
@@ -34,7 +32,10 @@ public class baseTest {
         Attach.takeScreenshot("Final screenshot");
         Attach.pageSource();
         Attach.browserConsoleLogs();
-      //  Attach.addVideo();
+    }
+
+    @AfterAll
+    static void  AfterAllTests() {
         closeWebDriver();
     }
 }
