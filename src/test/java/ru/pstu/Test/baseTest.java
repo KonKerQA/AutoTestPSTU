@@ -1,7 +1,9 @@
 package ru.pstu.Test;
 
 import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Step;
+import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.*;
 import ru.pstu.Pages.EnrolleePages;
 import ru.pstu.Pages.PSTUPages;
@@ -15,7 +17,6 @@ public class baseTest {
     PSTUPages pstuPages = new PSTUPages();
     EnrolleePages enrolle = new EnrolleePages();
    public static String  baseUrl = "https://pstu.ru/";
-
     @BeforeAll
     static void  beforeAllTests() {
         Configuration.browserSize = "1920x1080";
