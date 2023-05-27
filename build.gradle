@@ -9,7 +9,7 @@ version '1.0-SNAPSHOT'
 repositories {
     mavenCentral()
 }
-def selenideVersion = "6.7.2",
+def selenideVersion = "6.12.2",
     junitVersion = "5.9.0",
     allureSelenideVersion = "2.19.0",
     slf4jVersion = "1.7.36"

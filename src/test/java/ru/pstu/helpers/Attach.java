@@ -36,7 +36,9 @@ public class Attach {
         );
     }
 
-    public static String getSessionId() {
-        return ((RemoteWebDriver) getWebDriver()).getSessionId().toString();
+    public static void addAttachment() {
+        Attach.takeScreenshot("Final screenshot");
+        Attach.pageSource();
+        Attach.browserConsoleLogs();
     }
 }

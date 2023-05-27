@@ -1,7 +1,6 @@
 package ru.pstu.Test;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
+import io.qameta.allure.Link;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +13,6 @@ public class PSTUTests extends baseTest {
     @Test
     @DisplayName("Проверка текста на главной странице")
     void mainPageCheckTextTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         pstuPages.checkHeader().
                 checkFaculty().
@@ -24,7 +22,6 @@ public class PSTUTests extends baseTest {
     @Test
     @DisplayName("Проверка открытия английской, китайской, арабской и для слабовидящих версий сайта")
     void otherVersionsSiteTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         pstuPages.checkEngLanguage().
                 checkChineseLanguage().
@@ -35,7 +32,6 @@ public class PSTUTests extends baseTest {
     @Test
     @DisplayName("Проверка кнопок-ссылок на другие ресурсы в соц сетях")
     void otherSocialNetworksTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         pstuPages.checkTelegram().
                 checkLNS().
@@ -45,8 +41,8 @@ public class PSTUTests extends baseTest {
 
     @Test
     @DisplayName("Проверка страницы абитуренты")
+    @Link("https://pstu.ru/enrollee/")
     void enrollTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         enrolle.enrollPageCheck();
         attachment("Source", webdriver().driver().source());
@@ -55,7 +51,6 @@ public class PSTUTests extends baseTest {
     @Test
     @DisplayName("Проверка информационных разделов из хеддера")
     void othersHeaderPagesTest() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
 
         pstuPages.othersHeaderPageCheck();
         attachment("Source", webdriver().driver().source());
