@@ -5,11 +5,11 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.WebDriverConditions.url;
 import static org.openqa.selenium.By.xpath;
-import static ru.pstu.Test.baseTest.baseUrl;
 
 public class EnrolleePages {
 
